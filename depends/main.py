@@ -11,10 +11,12 @@ from sqlalchemy import create_engine, String, Integer, select
 from sqlalchemy.orm import DeclarativeBase, sessionmaker, Mapped, mapped_column
 
 
+# depended by all apps, functions, and classes
 async def set_charset():
     print("set UTF-8")
 
 
+# all api depends on set_charset()
 app = FastAPI(dependencies=[Depends(set_charset)])
 
 
